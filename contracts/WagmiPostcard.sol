@@ -11,7 +11,7 @@ contract WagmiPostcard is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    uint256 public _price = 0.013 ether;
+    uint256 public _price = 0.025 ether;
 
     string _baseTokenURI;
 
@@ -33,7 +33,7 @@ contract WagmiPostcard is ERC721URIStorage, Ownable {
             msg.value >= _price,
             "Each Wagmi postcard NFT costs 0.013 ether"
         );
-        (bool sentToArtist, ) = _artistEthAddress.call{value: 0.0065 ether}("");
+        (bool sentToArtist, ) = _artistEthAddress.call{value: 0.011 ether}("");
         require(sentToArtist, "failed to send ether to artist");
 
         uint256 newTokenId = _tokenIds.current();
